@@ -44,7 +44,7 @@ check_aws_profile() {
 # Function to create EC2 Instances in Amazon Linux, Ubuntu and Centos
 create_ec2_instances() {
 	# Array of ami-id
-	AMIS=("ami-0c55b159cbfafe1f0" "ami-0d5eff06f840b45e9" "ami-0cfe02c7ff480b5b2")
+	AMIS=("ami-04e5276ebb8451442" "ami-080e1f13689e07408" "ami-0fe630eb857a6ec83")
 	# Array of instance name
 	INSTANCE_NAMES=("AmazonLinux" "Ubuntu" "CentOS")
 
@@ -56,8 +56,7 @@ create_ec2_instances() {
         	--image-id "${AMIS[$i]}" \
         	--instance-type t2.micro \
         	--count 1 \
-        	--key-name MyKeyPair \
-		--tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${INSTANCE_NAMES[$i]}]"
+        	--key-name MyKeyPair
         
     		# Check if the EC2 instances were created successfully
     		if [ $? -eq 0 ]; then
